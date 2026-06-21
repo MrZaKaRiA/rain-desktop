@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAIN Desktop — Launcher</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="launcher">
+      <header class="brand">
+        <div class="logo">◆</div>
+        <h1>RAIN Desktop</h1>
+        <p class="tagline">Open your store in a native window. You sign in (password + 2FA) inside, like a browser.</p>
+      </header>
+
+      <form id="launch-form" autocomplete="off">
+        <label>
+          <span>Site URL <em>*</em></span>
+          <input id="url" type="url" inputmode="url" placeholder="https://admin.mystore.com" required />
+        </label>
+
+        <details class="creds">
+          <summary>Optional: pre-fill login (best-effort)</summary>
+          <p class="hint">If filled, the username + password are typed into the site's login form for you. You still complete the 2FA step yourself. Credentials are kept on this device only.</p>
+          <label>
+            <span>Username / email</span>
+            <input id="username" type="text" autocomplete="off" placeholder="you@example.com" />
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="password" type="password" autocomplete="off" placeholder="••••••••" />
+          </label>
+          <label class="row">
+            <input id="remember" type="checkbox" />
+            <span>Remember username + password on this device</span>
+          </label>
+        </details>
+
+        <button type="submit" class="open-btn">Open site</button>
+        <p id="error" class="error" role="alert"></p>
+      </form>
+
+      <section id="recent-wrap" class="recent" hidden>
+        <h2>Recent</h2>
+        <ul id="recent-list"></ul>
+      </section>
+
+      <footer class="foot">
+        <span>2FA is always entered by you — never stored.</span>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

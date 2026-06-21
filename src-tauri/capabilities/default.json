@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "IPC capabilities for the local launcher window only. The remote 'site' window is intentionally omitted so the loaded website has no access to native commands.",
+  "windows": ["launcher"],
+  "permissions": ["core:default"]
+}
