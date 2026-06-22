@@ -28,6 +28,39 @@ function pushRecent(url) {
   try { localStorage.setItem(RECENT_KEY, JSON.stringify(list.slice(0, 6))) } catch { /* ignore */ }
 }
 
+// ── Logo fetching ──────────────────────────────────────────────────────────
+// When the user types a URL we try Clearbit's public logo API (returns actual
+// brand logos, not favicons). On any failure we fall back to the "RAIN" text.
+let logoTimer = null
+
+function domainFrom(raw) {
+  try { return new URL(normalizeUrl(raw)).hostname.replace(/^www\./, '') } catch { return '' }
+}
+
+function showFallbackLogo() {
+  const img = $('site-icon')
+  const txt = $('logo-text')
+  img.hidden = true
+  img.src = ''
+  txt.hidden = false
+}
+
+function tryLogo(domain) {
+  if (!domain) { showFallbackLogo(); return }
+  const img = $('site-icon')
+  const txt = $('logo-text')
+  const src = `https://logo.clearbit.com/${domain}`
+  img.onload = () => { txt.hidden = true; img.hidden = false }
+  img.onerror = () => showFallbackLogo()
+  img.hidden = true
+  img.src = src
+}
+
+function scheduleLogo(raw) {
+  clearTimeout(logoTimer)
+  logoTimer = setTimeout(() => tryLogo(domainFrom(raw)), 500)
+}
+
 function normalizeUrl(raw) {
   let u = (raw || '').trim()
   if (!u) return ''
@@ -96,7 +129,10 @@ function hydrate() {
   $('remember').checked = !!cfg.remember
   if (cfg.username || cfg.password) document.querySelector('.creds').open = true
   renderRecent()
+  // Show logo for whatever URL is already in the field (baked or saved).
+  tryLogo(domainFrom($('url').value))
 }
 
 document.getElementById('launch-form').addEventListener('submit', (e) => { e.preventDefault(); openSite() })
+$('url').addEventListener('input', (e) => scheduleLogo(e.target.value))
 hydrate()
