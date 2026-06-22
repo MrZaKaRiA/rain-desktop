@@ -21,22 +21,30 @@
 </p>
 
 <p align="center">
+  <a href="https://mrzakaria.com/rain-store"><b>✦  Visit the RAIN store</b></a>
+  &nbsp;·&nbsp;
   <a href="../../releases"><b>⬇  Download for Mac · Windows · Linux</b></a>
   &nbsp;·&nbsp;
-  <a href="#-how-the-desktop-app-works">See how it works</a>
-  &nbsp;·&nbsp;
-  <a href="#-connect-it-to-your-store">Connect your store</a>
+  <a href="#-how-the-desktop-app-works">How it works</a>
 </p>
 
 <br/>
 
 ---
 
-## ✦ Commerce, beautifully done
+## ✦ Meet RAIN — commerce, beautifully done
 
-RAIN gives you everything it takes to sell online — and nothing you have to fight with.
-A storefront your customers love on their phones. An admin you actually enjoy opening.
-A checkout that closes the sale instead of losing it.
+Some stores just look *built*. **RAIN** looks **crafted.**
+
+It's a complete, modern commerce platform — fast where it counts, elegant where it shows, and
+relentless about turning visitors into orders. Everything it takes to sell online, and nothing
+you have to fight with. A storefront your customers fall for on their phones. An admin you
+actually *enjoy* opening. A checkout that closes the sale instead of losing it.
+
+No plugins to babysit. No theme that breaks on the next update. Just one beautifully engineered
+store that feels premium from the first tap to the thank-you page.
+
+<p align="center"><a href="https://mrzakaria.com/rain-store"><b>✦  See RAIN live  →  mrzakaria.com/rain-store</b></a></p>
 
 <p align="center">
   <img src="assets/features.svg" alt="Build it visually · Get paid locally · Installs like an app · Run the business" width="100%" />
@@ -118,6 +126,18 @@ opening in a clean window where you sign in like normal — **password and 2FA i
 </table>
 
 <p align="center"><a href="../../releases"><b>→ Download the latest release</b></a></p>
+
+<br/>
+
+---
+
+<p align="center">
+  <b>RAIN — your whole store, beautifully done.</b><br/>
+  <sub>See it live, explore the platform, and make it your own.</sub>
+</p>
+<p align="center">
+  <a href="https://mrzakaria.com/rain-store"><b>✦  Explore the RAIN store  →</b></a>
+</p>
 
 <br/>
 <br/>
@@ -240,5 +260,5 @@ rain-desktop/
 ---
 
 <p align="center">
-  <sub>Built as the native companion to the <b>RAIN</b> store. macOS · Windows · Linux installers come from the GitHub Actions workflow above. · MIT licensed.</sub>
+  <sub>Built as the native companion to the <b><a href="https://mrzakaria.com/rain-store">RAIN store</a></b>. macOS · Windows · Linux installers come from the GitHub Actions workflow above. · MIT licensed.</sub>
 </p>
