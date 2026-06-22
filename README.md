@@ -1,103 +1,223 @@
-# RAIN Desktop
+<!-- ───────────────────────────  RAIN  ─────────────────────────── -->
 
-A small, configurable **native desktop launcher** for your store/admin, built on
-[Tauri v2](https://tauri.app) (the same lightweight Rust + system-webview approach
-as [Pake](https://github.com/tw93/Pake) — ~5 MB apps, not Electron).
+<p align="center">
+  <img src="assets/banner.svg" alt="RAIN — the storefront, the admin, the checkout, in one beautiful place" width="100%" />
+</p>
 
-Unlike vanilla Pake (which bakes in **one fixed URL** at build time), this app
-shows a **launcher screen**: you type a **URL**, optionally pre-fill your
-**username + password**, and it opens the site in a clean native window where you
-finish signing in — **including 2FA, which you always enter yourself**.
+<p align="center">
+  <a href="../../releases"><img src="https://img.shields.io/badge/macOS-Apple%20Silicon%20%2B%20Intel-1a1a1a?logo=apple&logoColor=white" alt="macOS"></a>
+  <a href="../../releases"><img src="https://img.shields.io/badge/Windows-10%20%2F%2011-1a1a1a?logo=windows&logoColor=white" alt="Windows"></a>
+  <a href="../../releases"><img src="https://img.shields.io/badge/Linux-deb%20·%20AppImage%20·%20rpm-1a1a1a?logo=linux&logoColor=white" alt="Linux"></a>
+  <img src="https://img.shields.io/badge/built%20with-Tauri%20v2-1a1a1a?logo=tauri&logoColor=white" alt="Tauri v2">
+  <img src="https://img.shields.io/badge/size-~5%20MB-1a1a1a" alt="~5 MB">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1a1a1a" alt="MIT"></a>
+</p>
 
-```
-┌─ Launcher window ─────────┐        ┌─ Site window ─────────────┐
-│  Site URL:  [__________]  │  Open  │  (your store/admin, you    │
-│  ▸ pre-fill login          │ ─────▶ │   log in here: password +  │
-│  [ Open site ]            │        │   2FA, like a browser)     │
-└───────────────────────────┘        └───────────────────────────┘
-```
+<h3 align="center">A complete commerce platform — and a native desktop app to run it from anywhere.</h3>
 
-## What it does / doesn't do
-- ✅ Enter **any** URL at runtime; recent URLs are remembered.
-- ✅ Optional **best-effort** username/password pre-fill (typed into the site's
-  login form). Stored **only on your device**, only if you tick "remember".
-- ✅ **2FA is never stored or auto-entered** — you type the code in the site window.
-- ✅ Builds for **macOS** (`.dmg`/`.app`), **Windows** (`.msi` + NSIS `.exe`),
-  **Linux** (`.deb` + `.AppImage` + `.rpm`).
-- ⚠️ Auto-fill is *best-effort* — it targets common login-form fields and won't
-  match every site. The robust path is always: log in normally in the site window.
+<p align="center">
+  <b>RAIN</b> is a modern storefront, a powerful back-office, and a checkout that just works.<br/>
+  This is its companion <b>desktop launcher</b> — your whole store, one click from the dock.
+</p>
+
+<p align="center">
+  <a href="../../releases"><b>⬇  Download for Mac · Windows · Linux</b></a>
+  &nbsp;·&nbsp;
+  <a href="#-how-the-desktop-app-works">See how it works</a>
+  &nbsp;·&nbsp;
+  <a href="#-connect-it-to-your-store">Connect your store</a>
+</p>
+
+<br/>
 
 ---
 
-## Build all three OSes with one command (recommended) — GitHub Actions
+## ✦ Commerce, beautifully done
 
-Cross-OS binaries **cannot** be compiled from a single machine. The reliable
-"one command, all 3 versions" is CI:
+RAIN gives you everything it takes to sell online — and nothing you have to fight with.
+A storefront your customers love on their phones. An admin you actually enjoy opening.
+A checkout that closes the sale instead of losing it.
+
+<p align="center">
+  <img src="assets/features.svg" alt="Build it visually · Get paid locally · Installs like an app · Run the business" width="100%" />
+</p>
+
+### 🎨 A storefront that sells
+- **Drag-and-drop home builder** — compose your homepage from rich widgets (heroes, carousels, spotlights, parallax, personalized rows) with **scheduling, audience, and per-device targeting** baked in.
+- **Mobile-first by design** — product cards, shop, cart, and a **sticky checkout CTA** tuned for thumbs, with a polished dark mode.
+- **Installs like an app** — full **PWA** support and a one-tap install prompt put your store on the home screen.
+
+### 💳 A checkout that converts
+- **Multi-gateway payments** — built to plug into local and global processors (CMI and friends), so customers pay the way they trust.
+- **Multi-currency & tax** — decimal-safe rounding and tax reporting that hold up to the accountant.
+- **Order tracking** — signed-in shoppers see their orders **auto-load** with live tracking; everyone else can track by number.
+
+### 📊 A back-office that runs the business
+- **One dashboard** for orders, customers (CRM), and fulfillment.
+- **Grow on evidence** — A/B testing, AI assists, SEO & competitor analytics, and a ⌘K command palette.
+- **Sleep at night** — system monitoring, a public status page, uptime guards, and admin **IP allow-listing**.
+
+<br/>
+
+---
+
+## 🖥 Your store, on every device
+
+RAIN already lives on the **web** and installs as a **PWA** on phones. This repository adds the
+final surface: a **true native desktop app** for **macOS, Windows, and Linux** — built on
+[Tauri v2](https://tauri.app) (Rust + the system webview, ~5 MB, *not* Electron).
+
+No browser tabs to hunt for. No bookmarks that get lost. Just your store, in the dock,
+opening in a clean window where you sign in like normal — **password and 2FA included**.
+
+<br/>
+
+---
+
+## ✦ How the desktop app works
+
+<p align="center">
+  <img src="assets/how-it-works.svg" alt="Type your store URL in the launcher; it opens in a clean native window where you sign in" width="100%" />
+</p>
+
+1. **Type your store URL once** — the launcher remembers it (and your recent stores), and shows
+   your store's logo as you type.
+2. **Optionally pre-fill** your username + password — stored *only on your device*, only if you opt in.
+3. **Open** — your store loads in a focused native window. You finish signing in there,
+   **2FA and all** — exactly like a browser, just without the browser.
+
+> 🔒 **Your 2FA code is never stored or auto-typed.** You always enter it yourself, in the store window.
+
+<br/>
+
+---
+
+## ⬇ Get the apps
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
+      <b>macOS</b><br/>
+      <sub>Universal · Apple Silicon + Intel</sub><br/>
+      <code>.dmg</code>
+    </td>
+    <td align="center" width="33%">
+      <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
+      <b>Windows</b><br/>
+      <sub>Windows 10 / 11</sub><br/>
+      <code>.msi</code> · <code>.exe</code>
+    </td>
+    <td align="center" width="33%">
+      <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
+      <b>Linux</b><br/>
+      <sub>Debian/Ubuntu · Fedora · portable</sub><br/>
+      <code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code>
+    </td>
+  </tr>
+</table>
+
+<p align="center"><a href="../../releases"><b>→ Download the latest release</b></a></p>
+
+<br/>
+<br/>
+
+---
+
+<!-- ════════════════════════════════════════════════════════════════
+     EVERYTHING BELOW IS FOR OPERATORS & DEVELOPERS:
+     how to point the app at your store, build it, and ship it.
+     ════════════════════════════════════════════════════════════════ -->
+
+# 🔌 Connect it to your store
+
+> RAIN Desktop is a **launcher** — it contains **none** of the store's code. It simply opens a
+> URL you choose in a native window. You need a running **RAIN store web app** for it to point at.
+
+You can connect a store in two ways:
+
+**A) At runtime (no rebuild)** — open the app, type your store URL (e.g.
+`https://shop.yourbrand.com` or `https://admin.yourbrand.com`), and hit **Open site**. Done.
+
+**B) Baked in at build time** — ship a build that already knows your URL:
+
+```bash
+npm run set-url -- https://admin.yourbrand.com
+```
+
+The launcher will pre-fill that URL on first run (it stays editable).
+
+---
+
+## Build all three OSes with one command — GitHub Actions
+
+Cross-OS binaries **cannot** be compiled from a single machine, so the reliable
+"one command, all 3 versions" path is CI:
 
 1. Push this folder to a GitHub repo.
-2. **Actions** tab → **build** → **Run workflow** → (optionally) type your
-   **default URL** (e.g. `https://admin.mystore.com`) → **Run**.
-3. When the three jobs finish, the installers are attached to a **draft Release**
-   (Releases tab): macOS `.dmg`, Windows `.msi`/`.exe`, Linux `.deb`/`.AppImage`/`.rpm`.
+2. **Actions → build → Run workflow** → *(optionally)* type your default URL → **Run**.
+3. When the three jobs finish, the installers are attached to a **draft Release**:
+   macOS `.dmg`, Windows `.msi`/`.exe`, Linux `.deb`/`.AppImage`/`.rpm`.
 
-Or just **push a tag** to build + publish in one step:
+Or **push a tag** to build and publish in one step:
+
 ```bash
 git tag v0.1.0 && git push origin v0.1.0
 ```
-(In that mode the URL stays runtime-configurable in the launcher — no bake needed.)
 
-The workflow auto-generates a placeholder icon if you haven't added one yet, so
-the build works immediately. Add real artwork any time (see *Icon* below).
+The workflow auto-generates a placeholder icon if none is committed, so builds never fail.
 
 ---
 
 ## Build locally (one OS at a time)
 
-Prerequisites — install once:
-- **Rust ≥ 1.77** → https://rustup.rs (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
-- **Node ≥ 18** (you have it) and **npm**
+Install once:
+- **Rust ≥ 1.77** → https://rustup.rs
+- **Node ≥ 18** + **npm**
 - Tauri's per-OS system deps → https://tauri.app/start/prerequisites
-  - **macOS:** Xcode Command Line Tools (`xcode-select --install`).
-  - **Linux:** `libwebkit2gtk-4.1-dev librsvg2-dev libayatana-appindicator3-dev patchelf` (+ build-essential).
-  - **Windows:** the WebView2 runtime (preinstalled on Win 10/11) + MSVC Build Tools.
+  - **macOS:** Xcode Command Line Tools (`xcode-select --install`)
+  - **Linux:** `libwebkit2gtk-4.1-dev librsvg2-dev libayatana-appindicator3-dev patchelf`
+  - **Windows:** WebView2 runtime (preinstalled on Win 10/11) + MSVC Build Tools
 
 Then:
+
 ```bash
 cd rain-desktop
 npm install
-npm run icons                 # generates the icon set (placeholder if no app-icon.png)
-
-# optional: bake a default URL into the launcher
-npm run set-url -- https://admin.mystore.com
-
-npm run dev                   # run the app live (hot-ish reload)
-npm run build                 # produce installers for THIS OS in src-tauri/target/release/bundle/
+npm run icons                 # generate the icon set from app-icon.png
+npm run set-url -- https://admin.yourbrand.com   # optional: bake a default URL
+npm run dev                   # run live
+npm run build                 # installers for THIS OS → src-tauri/target/release/bundle/
 ```
-
-`npm run build` outputs to `src-tauri/target/release/bundle/` (e.g. `dmg/`, `msi/`,
-`nsis/`, `deb/`, `appimage/`).
 
 ---
 
-## Icon
-Drop a **1024×1024 `app-icon.png`** in this folder and run `npm run icons` — Tauri
-generates every platform icon (`.icns`, `.ico`, PNGs) into `src-tauri/icons/`.
-With no `app-icon.png`, a plain placeholder is generated so builds never fail.
+## Make it yours
 
-## Configure
-- **App name / id / version:** `src-tauri/tauri.conf.json` (`productName`, `identifier`, `version`).
-- **Launcher window size:** the `app.windows[0]` block in the same file.
-- **Default URL at build time:** `npm run set-url -- <url>` (or the CI input).
-- **Pre-fill field matching:** the selector list in `build_prefill_script()` in `src-tauri/src/lib.rs`.
+| What | Where |
+| --- | --- |
+| App name / id / version | `src-tauri/tauri.conf.json` (`productName`, `identifier`, `version`) |
+| Launcher window size | `app.windows[0]` in the same file |
+| App icon | replace `app-icon.png` (1024×1024) and run `npm run icons` |
+| Default URL at build time | `npm run set-url -- <url>` (or the CI input) |
+| Login-field matching | the selector list in `build_prefill_script()` in `src-tauri/src/lib.rs` |
+
+The branded artwork in `assets/` (icon, banner, diagrams) is plain SVG — edit and re-render with
+`rsvg-convert` or any SVG tool.
+
+---
 
 ## Layout
+
 ```
 rain-desktop/
+├─ assets/                  # branding & marketing art (SVG)
+│  ├─ icon.svg · banner.svg · how-it-works.svg · features.svg
+├─ app-icon.png             # 1024×1024 source for every platform icon
 ├─ src/                     # launcher UI (vanilla HTML/JS — no build step)
 │  ├─ index.html · app.js · style.css
 ├─ src-tauri/               # the Tauri (Rust) app
 │  ├─ src/lib.rs            # open_site command + credential pre-fill
-│  ├─ src/main.rs
 │  ├─ tauri.conf.json       # windows, bundle targets (all OSes), identifier
 │  └─ capabilities/default.json
 ├─ scripts/                 # set-default-url + placeholder-icon generators
@@ -105,14 +225,20 @@ rain-desktop/
 └─ package.json
 ```
 
+---
+
 ## Security notes
-- The loaded website runs in its own window with **no access to native commands**
-  (only the local launcher window has IPC — see `capabilities/default.json`).
-- Stored credentials live in the launcher's local storage on your machine, only
-  when you opt in. For a hardened version, move them to the OS keychain via
-  `tauri-plugin-stronghold` / `keyring` (left out to keep v1 dependency-free).
+
+- The loaded website runs in its **own window with no access to native commands** — only the
+  local launcher window has IPC (see `capabilities/default.json`).
+- The URL is validated (`https`/`http` only) before a window is opened.
+- Pre-filled credentials live in the launcher's local storage **on your machine**, only when you
+  opt in. For a hardened build, move them to the OS keychain via `tauri-plugin-stronghold` /
+  `keyring` (left out to keep v1 dependency-free).
+- **2FA is never stored or auto-entered.**
 
 ---
 
-*Built as a companion to the RAIN store. macOS/Windows/Linux installers come from
-the GitHub Actions workflow above.*
+<p align="center">
+  <sub>Built as the native companion to the <b>RAIN</b> store. macOS · Windows · Linux installers come from the GitHub Actions workflow above. · MIT licensed.</sub>
+</p>

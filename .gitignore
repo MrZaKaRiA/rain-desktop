@@ -10,6 +10,8 @@ src-tauri/icons/
 
 # build artifacts
 dist/
+# locally-built installers (these ship via GitHub Releases, not git)
+installers/
 
 # os
 .DS_Store
