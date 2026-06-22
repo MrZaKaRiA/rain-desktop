@@ -34,8 +34,7 @@ One click, once per version. No Terminal, no `xattr`.
 ## 3. Proper fix — notarize in CI (downloads open directly for everyone)
 
 This is the only way a **downloaded** app opens with **zero** warnings for all users.
-It requires an **Apple Developer Program** membership ($99/yr). The CI is already wired
-for it — you only need to add six repository secrets
+It requires an **Apple Developer Program** membership ($99/yr). Add six repository secrets
 (*Settings → Secrets and variables → Actions*):
 
 | Secret | What it is | Where to get it |
@@ -51,9 +50,42 @@ Get the certificate from <https://developer.apple.com/account/resources/certific
 (create a **Developer ID Application** certificate), download it, double-click to add it to
 Keychain, then export it as `.p12`.
 
-Once the secrets are set, **every build is automatically signed + notarized** — the
-`.dmg` on the Releases page opens with a normal double-click, no prompt. Nothing else to
-change; if the secrets are absent the build stays unsigned (options 1 and 2 still apply).
+Then add this step to `.github/workflows/build.yml`, **right before** the *"Build + publish
+installers"* step. It only exports the signing env when the certificate is actually present,
+so builds with no secrets stay unsigned instead of failing:
+
+```yaml
+      - name: Configure macOS signing (only when the cert secret is set)
+        if: startsWith(matrix.platform, 'macos')
+        shell: bash
+        env:
+          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          if [ -n "$APPLE_CERTIFICATE" ] && [ -n "$APPLE_SIGNING_IDENTITY" ]; then
+            {
+              echo "APPLE_CERTIFICATE<<EOF"; echo "$APPLE_CERTIFICATE"; echo "EOF"
+              echo "APPLE_CERTIFICATE_PASSWORD=$APPLE_CERTIFICATE_PASSWORD"
+              echo "APPLE_SIGNING_IDENTITY=$APPLE_SIGNING_IDENTITY"
+              echo "APPLE_ID=$APPLE_ID"
+              echo "APPLE_PASSWORD=$APPLE_PASSWORD"
+              echo "APPLE_TEAM_ID=$APPLE_TEAM_ID"
+            } >> "$GITHUB_ENV"
+            echo "macOS signing configured."
+          else
+            echo "No Apple signing secrets — building unsigned."
+          fi
+```
+
+With that step in place and the secrets set, the mac `.dmg` is signed + notarized and opens
+with a normal double-click. Without the secrets it builds unsigned (options 1 and 2 apply).
+
+> ⚠️ Do **not** put the `APPLE_*` vars directly in the build step's `env:` — when the secrets
+> are empty, Tauri tries to codesign with an empty identity and the whole mac build fails.
 
 > **Windows** shows a similar SmartScreen prompt (*More info → Run anyway*). Removing it
 > needs a paid code-signing certificate; the same workflow can carry one later.

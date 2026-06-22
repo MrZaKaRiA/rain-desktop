@@ -81,21 +81,15 @@ jobs:
         shell: bash
         run: node scripts/set-default-url.mjs "${{ github.event.inputs.default_url }}"
 
+      # macOS code-signing + notarization is opt-in and NOT wired here on
+      # purpose: passing empty APPLE_* env vars makes Tauri attempt to codesign
+      # with an empty identity and fails the whole mac build. To enable signed,
+      # notarized mac builds, add the secrets and the dedicated step shown in
+      # SIGNING.md (it exports the env only when the cert is actually present).
       - name: Build + publish installers
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # ── macOS code-signing + notarization (optional) ──────────────────
-          # Set these 6 repo secrets and the downloaded mac app opens with NO
-          # Gatekeeper warning ("just works"). Leave them unset and the build is
-          # unsigned (runs fine when built locally; downloads need a one-time
-          # approval). See SIGNING.md for how to obtain each value.
-          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
-          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         with:
           args: ${{ matrix.target != '' && format('--target {0}', matrix.target) || '' }}
           tagName: ${{ github.ref_type == 'tag' && github.ref_name || format('app-build-{0}', github.run_number) }}
