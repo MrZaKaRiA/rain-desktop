@@ -127,6 +127,8 @@ opening in a clean window where you sign in like normal — **password and 2FA i
 
 <p align="center"><a href="../../releases"><b>→ Download the latest release</b></a></p>
 
+<p align="center"><sub>First launch on macOS/Windows shows a security prompt for unsigned apps — see <a href="SIGNING.md">SIGNING.md</a> to open it in one click (or sign &amp; notarize so it opens directly).</sub></p>
+
 <br/>
 
 ---
