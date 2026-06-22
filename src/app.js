@@ -29,9 +29,12 @@ function pushRecent(url) {
 }
 
 // ── Logo fetching ──────────────────────────────────────────────────────────
-// When the user types a URL we try Clearbit's public logo API (returns actual
-// brand logos, not favicons). On any failure we fall back to the "RAIN" text.
+// As the user types a URL we show the store's real brand logo. The Rust side is
+// asked first — it reads the store's public /api/settings → site_logo (and falls
+// back to the site's icons), all without CORS. If that yields nothing we try
+// Clearbit, and finally fall back to the "RAIN" wordmark.
 let logoTimer = null
+let logoSeq = 0
 
 function domainFrom(raw) {
   try { return new URL(normalizeUrl(raw)).hostname.replace(/^www\./, '') } catch { return '' }
@@ -39,26 +42,52 @@ function domainFrom(raw) {
 
 function showFallbackLogo() {
   const img = $('site-icon')
-  const txt = $('logo-text')
+  img.onload = img.onerror = null
   img.hidden = true
-  img.src = ''
-  txt.hidden = false
+  img.removeAttribute('src')
+  $('logo-text').hidden = false
 }
 
-function tryLogo(domain) {
-  if (!domain) { showFallbackLogo(); return }
-  const img = $('site-icon')
-  const txt = $('logo-text')
-  const src = `https://logo.clearbit.com/${domain}`
-  img.onload = () => { txt.hidden = true; img.hidden = false }
-  img.onerror = () => showFallbackLogo()
-  img.hidden = true
-  img.src = src
+// Attempt to display `src`. Resolves true if the image loaded, false otherwise.
+function showLogo(src) {
+  return new Promise((resolve) => {
+    const img = $('site-icon')
+    img.onload = () => { $('logo-text').hidden = true; img.hidden = false; resolve(true) }
+    img.onerror = () => resolve(false)
+    img.hidden = true
+    img.src = src
+  })
+}
+
+async function tryLogo(raw) {
+  const seq = ++logoSeq                 // ignore results from superseded keystrokes
+  const current = () => seq === logoSeq
+  const url = normalizeUrl(raw)
+  const domain = domainFrom(raw)
+  if (!url && !domain) { showFallbackLogo(); return }
+
+  // 1) The store's own admin-set brand logo, fetched natively (no CORS).
+  if (invoke && url) {
+    try {
+      const found = await invoke('fetch_store_logo', { url })
+      if (!current()) return
+      if (found && await showLogo(found)) return
+      if (!current()) return
+    } catch { /* fall through to Clearbit */ }
+  }
+  // 2) Clearbit — works for well-known brand domains.
+  if (domain) {
+    const ok = await showLogo(`https://logo.clearbit.com/${domain}`)
+    if (!current()) return
+    if (ok) return
+  }
+  // 3) Wordmark.
+  if (current()) showFallbackLogo()
 }
 
 function scheduleLogo(raw) {
   clearTimeout(logoTimer)
-  logoTimer = setTimeout(() => tryLogo(domainFrom(raw)), 500)
+  logoTimer = setTimeout(() => tryLogo(raw), 450)
 }
 
 function normalizeUrl(raw) {
@@ -130,7 +159,7 @@ function hydrate() {
   if (cfg.username || cfg.password) document.querySelector('.creds').open = true
   renderRecent()
   // Show logo for whatever URL is already in the field (baked or saved).
-  tryLogo(domainFrom($('url').value))
+  tryLogo($('url').value)
 }
 
 document.getElementById('launch-form').addEventListener('submit', (e) => { e.preventDefault(); openSite() })

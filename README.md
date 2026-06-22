@@ -107,19 +107,19 @@ opening in a clean window where you sign in like normal — **password and 2FA i
     <td align="center" width="33%">
       <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
       <b>macOS</b><br/>
-      <sub>Universal · Apple Silicon + Intel</sub><br/>
+      <sub>Apple Silicon · Intel</sub><br/>
       <code>.dmg</code>
     </td>
     <td align="center" width="33%">
       <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
       <b>Windows</b><br/>
-      <sub>Windows 10 / 11</sub><br/>
+      <sub>x64 · ARM64</sub><br/>
       <code>.msi</code> · <code>.exe</code>
     </td>
     <td align="center" width="33%">
       <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
       <b>Linux</b><br/>
-      <sub>Debian/Ubuntu · Fedora · portable</sub><br/>
+      <sub>x64 · ARM64</sub><br/>
       <code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code>
     </td>
   </tr>

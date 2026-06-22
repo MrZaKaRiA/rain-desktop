@@ -17,6 +17,9 @@ tauri-build = { version = "2", features = [] }
 tauri = { version = "2", features = [] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+# Small blocking HTTP client (rustls, no system OpenSSL) used only to fetch the
+# store's public logo for the launcher header — kept off the remote site window.
+ureq = "2"
 
 [profile.release]
 panic = "abort"
