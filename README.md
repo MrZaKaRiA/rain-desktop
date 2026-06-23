@@ -50,6 +50,13 @@ store that feels premium from the first tap to the thank-you page.
 <p align="center"><a href="https://mrzakaria.com/rain-store"><b>✦  See RAIN live  →  mrzakaria.com/rain-store</b></a></p>
 
 <p align="center">
+  <img src="assets/storefront-showcase.svg" alt="The RAIN storefront on desktop and mobile, in light and dark" width="100%" />
+</p>
+<p align="center"><sub><b>What your shoppers see.</b> A storefront so good they forget they're shopping — pixel-perfect on desktop and phone, light and dark, every single time.</sub></p>
+
+<br/>
+
+<p align="center">
   <img src="assets/features.svg" alt="Build it visually · Get paid locally · Installs like an app · Run the business" width="100%" />
 </p>
 
@@ -67,6 +74,11 @@ store that feels premium from the first tap to the thank-you page.
 - **One dashboard** for orders, customers (CRM), and fulfillment.
 - **Grow on evidence** — A/B testing, AI assists, SEO & competitor analytics, and a ⌘K command palette.
 - **Sleep at night** — system monitoring, a public status page, uptime guards, and admin **IP allow-listing**.
+
+<p align="center">
+  <img src="assets/admin-dashboard.svg" alt="The RAIN admin dashboard — revenue, orders, customers, and live insights in one view" width="100%" />
+</p>
+<p align="center"><sub><b>Where you run the empire.</b> Revenue, orders, customers, stock, traffic, and AI — one calm, beautiful command center that surfaces exactly what needs you, and quietly handles the rest.</sub></p>
 
 <br/>
 
@@ -128,30 +140,23 @@ opening in a clean window where you sign in like normal — **password and 2FA i
 
 ## ⬇ Get the apps
 
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
-      <b>macOS</b><br/>
-      <sub>Apple Silicon · Intel</sub><br/>
-      <code>.dmg</code>
-    </td>
-    <td align="center" width="33%">
-      <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
-      <b>Windows</b><br/>
-      <sub>x64 · ARM64</sub><br/>
-      <code>.msi</code> · <code>.exe</code>
-    </td>
-    <td align="center" width="33%">
-      <img src="assets/icon.svg" width="72" alt="RAIN"><br/>
-      <b>Linux</b><br/>
-      <sub>x64 · ARM64</sub><br/>
-      <code>.deb</code> · <code>.rpm</code> · <code>.AppImage</code>
-    </td>
-  </tr>
-</table>
+<p align="center"><img src="assets/icon.svg" width="84" alt="RAIN"></p>
 
-<p align="center"><a href="../../releases"><b>→ Download the latest release</b></a></p>
+Every file is named for exactly what it is — grab the one for your machine:
+
+| Platform | Download | Who it's for |
+| --- | --- | --- |
+| **macOS — Apple Silicon** | `RAIN-Desktop-macOS-Apple-Silicon.dmg` | M1 / M2 / M3 / M4 Macs (2020+) |
+| **macOS — Intel** | `RAIN-Desktop-macOS-Intel.dmg` | Intel Macs (pre-2020) |
+| **Windows — x64** | `RAIN-Desktop-Windows-x64-Setup.exe`<br/>`RAIN-Desktop-Windows-x64.msi` | most Windows PCs |
+| **Windows — ARM64** | `RAIN-Desktop-Windows-ARM64-Setup.exe`<br/>`RAIN-Desktop-Windows-ARM64.msi` | Surface Pro X, Snapdragon PCs |
+| **Linux — x64** | `RAIN-Desktop-Linux-x64.AppImage`<br/>`RAIN-Desktop-Linux-x64.deb`<br/>`RAIN-Desktop-Linux-x64.rpm` | most desktops/servers |
+| **Linux — ARM64** | `RAIN-Desktop-Linux-ARM64.AppImage`<br/>`RAIN-Desktop-Linux-ARM64.deb`<br/>`RAIN-Desktop-Linux-ARM64.rpm` | Raspberry Pi 4/5, ARM servers |
+
+<sub><b>Windows:</b> <code>-Setup.exe</code> is the normal installer · <code>.msi</code> is for managed/enterprise rollouts.
+<b>Linux:</b> <code>.AppImage</code> is portable (just <code>chmod +x</code> and run) · <code>.deb</code> for Debian/Ubuntu/Mint · <code>.rpm</code> for Fedora/RHEL/openSUSE.</sub>
+
+<p align="center"><a href="../../releases/latest"><b>→ Download the latest release</b></a></p>
 
 <p align="center"><sub>First launch on macOS/Windows shows a security prompt for unsigned apps — see <a href="SIGNING.md">SIGNING.md</a> to open it in one click (or sign &amp; notarize so it opens directly).</sub></p>
 

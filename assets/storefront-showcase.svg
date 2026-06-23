@@ -1,0 +1,93 @@
+<svg width="1320" height="720" viewBox="0 0 1320 720" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="sfshadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="18" stdDeviation="30" flood-color="#1a1a1a" flood-opacity="0.30"/>
+    </filter>
+    <clipPath id="deskClip"><rect x="40" y="48" width="900" height="640" rx="16"/></clipPath>
+    <clipPath id="phoneClip"><rect x="1000" y="120" width="248" height="492" rx="34"/></clipPath>
+    <linearGradient id="heroG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#26241f"/><stop offset="1" stop-color="#4a443a"/>
+    </linearGradient>
+    <linearGradient id="heroGd" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f1f1f"/><stop offset="1" stop-color="#3a3a3a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1320" height="720" fill="#efece7"/>
+
+  <!-- ── Desktop storefront (light) ── -->
+  <rect x="40" y="48" width="900" height="640" rx="16" fill="#ffffff" filter="url(#sfshadow)"/>
+  <g clip-path="url(#deskClip)">
+    <rect x="40" y="48" width="900" height="40" fill="#f4f2ee"/>
+    <circle cx="66" cy="68" r="5.5" fill="#dcd8d2"/><circle cx="86" cy="68" r="5.5" fill="#dcd8d2"/><circle cx="106" cy="68" r="5.5" fill="#dcd8d2"/>
+    <rect x="360" y="58" width="260" height="20" rx="10" fill="#eae7e1"/>
+    <text x="490" y="72" text-anchor="middle" fill="#9a958d" font-size="11">🔒 rainstore.com</text>
+
+    <!-- nav -->
+    <text x="72" y="124" fill="#1a1a1a" font-size="20" font-weight="800" letter-spacing="1.5">RAIN</text>
+    <g fill="#5a564f" font-size="12.5"><text x="360" y="123">New</text><text x="420" y="123">Women</text><text x="500" y="123">Men</text><text x="556" y="123" fill="#b5462f">Sale</text></g>
+    <circle cx="858" cy="118" r="8" fill="none" stroke="#5a564f" stroke-width="2"/>
+    <path d="M884 110 h18 l-2 16 h-14 z" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="40" y1="146" x2="940" y2="146" stroke="#eceae5"/>
+
+    <!-- hero -->
+    <rect x="72" y="168" width="836" height="244" rx="14" fill="url(#heroG)"/>
+    <text x="104" y="232" fill="#d8cfc0" font-size="13" font-weight="600" letter-spacing="3">AUTUMN / WINTER 2026</text>
+    <text x="104" y="292" fill="#ffffff" font-size="44" font-weight="800">Made to be noticed.</text>
+    <text x="104" y="324" fill="#cfc8bd" font-size="15">The collection everyone's been waiting for — now live.</text>
+    <rect x="104" y="346" width="168" height="42" rx="8" fill="#ffffff"/>
+    <text x="188" y="372" text-anchor="middle" fill="#1a1a1a" font-size="14" font-weight="700">Shop the collection</text>
+
+    <!-- product grid -->
+    <g>
+      <rect x="72" y="436" width="196" height="224" rx="12" fill="#f5f3ee"/>
+      <rect x="72" y="436" width="196" height="150" rx="12" fill="#e4e0d9"/>
+      <rect x="84" y="600" width="120" height="11" rx="5" fill="#bdb8b0"/>
+      <text x="84" y="638" fill="#1a1a1a" font-size="15" font-weight="700">$129</text>
+      <rect x="226" y="448" width="32" height="16" rx="4" fill="#1a1a1a"/><text x="242" y="460" text-anchor="middle" fill="#fff" font-size="8">NEW</text>
+
+      <rect x="286" y="436" width="196" height="224" rx="12" fill="#f5f3ee"/>
+      <rect x="286" y="436" width="196" height="150" rx="12" fill="#e0dcd4"/>
+      <rect x="298" y="600" width="120" height="11" rx="5" fill="#bdb8b0"/>
+      <text x="298" y="638" fill="#1a1a1a" font-size="15" font-weight="700">$89</text>
+
+      <rect x="500" y="436" width="196" height="224" rx="12" fill="#f5f3ee"/>
+      <rect x="500" y="436" width="196" height="150" rx="12" fill="#e6e2db"/>
+      <rect x="512" y="600" width="120" height="11" rx="5" fill="#bdb8b0"/>
+      <text x="512" y="638" fill="#1a1a1a" font-size="15" font-weight="700">$159</text>
+
+      <rect x="714" y="436" width="194" height="224" rx="12" fill="#f5f3ee"/>
+      <rect x="714" y="436" width="194" height="150" rx="12" fill="#ddd9d1"/>
+      <rect x="726" y="600" width="120" height="11" rx="5" fill="#bdb8b0"/>
+      <text x="726" y="638" fill="#1a1a1a" font-size="15" font-weight="700">$74</text>
+    </g>
+  </g>
+
+  <!-- ── Phone storefront (dark mode) ── -->
+  <rect x="1000" y="120" width="248" height="492" rx="34" fill="#0d0d0d" filter="url(#sfshadow)"/>
+  <rect x="1006" y="126" width="236" height="480" rx="28" fill="#161616"/>
+  <g clip-path="url(#phoneClip)">
+    <rect x="1000" y="120" width="248" height="40" fill="#161616"/>
+    <rect x="1100" y="134" width="48" height="9" rx="4.5" fill="#000000"/>
+    <!-- header -->
+    <text x="1028" y="186" fill="#ffffff" font-size="16" font-weight="800" letter-spacing="1">RAIN</text>
+    <path d="M1206 178 h14 l-1.5 13 h-11 z" fill="none" stroke="#e8e8ea" stroke-width="1.8"/>
+    <!-- hero -->
+    <rect x="1024" y="206" width="200" height="150" rx="12" fill="url(#heroGd)"/>
+    <text x="1040" y="250" fill="#cfc8bd" font-size="9" font-weight="600" letter-spacing="2">NEW IN</text>
+    <text x="1040" y="278" fill="#ffffff" font-size="20" font-weight="800">Winter</text>
+    <text x="1040" y="300" fill="#ffffff" font-size="20" font-weight="800">essentials</text>
+    <rect x="1040" y="314" width="92" height="28" rx="7" fill="#ffffff"/><text x="1086" y="332" text-anchor="middle" fill="#1a1a1a" font-size="10" font-weight="700">Shop now</text>
+    <!-- product -->
+    <rect x="1024" y="370" width="96" height="150" rx="10" fill="#1e1e20"/>
+    <rect x="1024" y="370" width="96" height="100" rx="10" fill="#2a2a2d"/>
+    <rect x="1034" y="482" width="60" height="8" rx="4" fill="#3a3a40"/><text x="1034" y="508" fill="#fff" font-size="12" font-weight="700">$129</text>
+    <rect x="1128" y="370" width="96" height="150" rx="10" fill="#1e1e20"/>
+    <rect x="1128" y="370" width="96" height="100" rx="10" fill="#2d2a27"/>
+    <rect x="1138" y="482" width="60" height="8" rx="4" fill="#3a3a40"/><text x="1138" y="508" fill="#fff" font-size="12" font-weight="700">$89</text>
+    <!-- bottom tab bar -->
+    <rect x="1006" y="560" width="236" height="46" fill="#0e0e0e"/>
+    <line x1="1006" y1="560" x2="1242" y2="560" stroke="#222"/>
+    <g fill="#5a5b63"><rect x="1036" y="576" width="14" height="14" rx="3" fill="#ffffff"/><rect x="1090" y="576" width="14" height="14" rx="3"/><rect x="1144" y="576" width="14" height="14" rx="3"/><rect x="1198" y="576" width="14" height="14" rx="3"/></g>
+  </g>
+</svg>
