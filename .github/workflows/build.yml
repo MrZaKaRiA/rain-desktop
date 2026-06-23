@@ -96,3 +96,24 @@ jobs:
           releaseName: ${{ github.ref_type == 'tag' && github.ref_name || format('RAIN Desktop build {0}', github.run_number) }}
           releaseDraft: true
           releasePrerelease: false
+
+  # After every architecture has uploaded, give the installers strict,
+  # unambiguous names (RAIN-Desktop-macOS-Apple-Silicon.dmg, …-Windows-ARM64.msi, …).
+  finalize:
+    name: Name assets
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rename release assets to strict names
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || format('app-build-{0}', github.run_number) }}
+          RELEASE_NAME: ${{ github.ref_type == 'tag' && github.ref_name || format('RAIN Desktop build {0}', github.run_number) }}
+        run: node scripts/rename-assets.mjs

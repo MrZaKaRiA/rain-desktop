@@ -13,11 +13,14 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1a1a1a" alt="MIT"></a>
 </p>
 
-<h3 align="center">A complete commerce platform — and a native desktop app to run it from anywhere.</h3>
+<h3 align="center">The most beautiful way to run an online store — now a native app on your desktop.</h3>
 
 <p align="center">
-  <b>RAIN</b> is a modern storefront, a powerful back-office, and a checkout that just works.<br/>
-  This is its companion <b>desktop launcher</b> — your whole store, one click from the dock.
+  <b>RAIN</b> is the commerce platform the web has been waiting for: a storefront customers
+  fall in love with, a back-office that runs the whole business, and a checkout that simply
+  closes the sale.<br/>
+  And this is its companion <b>native desktop app</b> — <b>Mac, Windows, and Linux</b> — your
+  entire store, one click from the dock. <b>Nothing else looks, feels, or sells like it.</b>
 </p>
 
 <p align="center">
@@ -64,6 +67,29 @@ store that feels premium from the first tap to the thank-you page.
 - **One dashboard** for orders, customers (CRM), and fulfillment.
 - **Grow on evidence** — A/B testing, AI assists, SEO & competitor analytics, and a ⌘K command palette.
 - **Sleep at night** — system monitoring, a public status page, uptime guards, and admin **IP allow-listing**.
+
+<br/>
+
+---
+
+## ✦ Why nothing else comes close
+
+We didn't build *another* store builder. We built the one that makes the rest feel dated —
+an app like the web hasn't seen before, beautiful enough to show off and powerful enough to
+run the whole business.
+
+| | The usual store platforms | **RAIN** |
+| --- | :---: | :---: |
+| **Native desktop app** · Mac, Windows, Linux | a browser tab | **✅ a real app in your dock** |
+| **Mobile experience** | a bolt-on theme | **✅ mobile-first + installable PWA** |
+| **Build your homepage** | code, or rigid templates | **✅ drag-and-drop, scheduled & device-targeted** |
+| **Local payment gateways** | limited, often extra fees | **✅ multi-gateway, built in** |
+| **Multi-currency & tax** | paid add-ons | **✅ decimal-safe, built in** |
+| **Grow on data** | basic reports | **✅ A/B · AI · SEO & competitor analytics · ⌘K** |
+| **Your data & branding** | locked to their platform | **✅ end-to-end yours** |
+| **Per-sale platform cut** | yes | **✅ none** |
+
+One platform, every surface — **web, phone, and desktop**. Zero compromise.
 
 <br/>
 
